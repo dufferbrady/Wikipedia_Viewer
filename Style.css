@@ -1,0 +1,126 @@
+html body {
+    background-color: #F72730;
+}
+
+.header{
+    color: white;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 4px;
+    margin-top: 2.5%;
+}
+
+#top_header {
+    font-size: 400%;
+    margin-bottom: 5px;
+}
+
+#bottom_header {
+    font-size: 300%;
+    margin-top: 5px;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 40px;
+}
+
+.searchBar input {
+    width: 30%;
+    background-color: #0A192F;
+    color: white;
+    border: #0A192F;
+    height: 2em;
+    border-radius: 5px;
+    outline: none;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1px;
+    font-size: 1.25em;
+    padding: 0 7.5px 0 7.5px;
+}
+
+.randomArticle {
+    text-align: center;
+}
+
+input::-webkit-input-placeholder {
+    color: white;
+}
+
+.searchIcon {
+    color: #0A192F;
+    font-size: 2.5em;
+    padding: 0 10px 0 5px;
+    margin: 0 10px 0 10px;
+}
+
+.searchBar button {
+    background-color: #F72730;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+    outline: none;
+}
+
+.searchIcon:hover {
+    transform: scale(1.1);
+}
+
+.random {
+    color: #0A192F;
+    font-family: 'Roboto Slab', serif;
+    font-size: 200%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.random button {
+    width: 5%;
+    height: 3.5em;
+    background-color: #F72730;
+    border: none;
+    outline: none;
+}
+
+.randomIcon {
+    color: #0A192F;
+    font-size: 2em;
+}
+
+.chance {
+    color: #0A192F;
+    font-family: 'Roboto Slab', serif;
+    font-size: 100%;
+    opacity: 0;
+    transition: opacity 1.25s linear;
+    letter-spacing: 2px;
+    
+}
+
+.randomIcon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.random a:hover + p {
+    opacity: 1;
+}
+
+.searchItem {
+    border: #0A192F;
+    width: 50%;
+}
+
+.thumbnail {
+    background-color: #0A192F;
+    color: white;
+    margin: 2.5% 0;
+    padding: 15px;
+    border-radius: 10px;
+}
