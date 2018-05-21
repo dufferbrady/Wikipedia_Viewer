@@ -1,16 +1,18 @@
 function search() {
     var value = document.getElementById('mySearch').value;
-    var url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=10&prop=pageimages%7Cextracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
+    var cb = '&callback=JSON_CALLBACK';
+    var url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=5&prop=pageimages%7Cextracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
     const root = document.getElementById('root');
     $.ajax({
-        url: url + value,
+        url: url + value + cb,
         dataType: 'jsonp',
         success: function(data) {
+            var results = data.query.pages;
             if ($.trim($("#root").html()) !== '') {
                 removeData();
-                populate(data)
+                populate(results)
             }   else {
-                    populate(data)
+                    populate(results)
                 }
         }
     })
@@ -19,8 +21,8 @@ function search() {
 $(document).ready(function() {
     $('#mySearch').keyup(function(event) {
         if (event.keyCode === 13) {
-            search();
             //Call Search Function Here
+            search();
         }
     })
     $('.searchIcon').on('click', function() {
@@ -32,8 +34,9 @@ function removeData() {
     $('.container').remove();
 }
 
-function populate(api) {
-    for (var j = 0; j < 4; j++) {
+function populate(input) {
+    for (var result in input) {
+        var page = input[result]
         const container = document.createElement('div');
         const thumbnail = document.createElement('div');
         const h1 = document.createElement('h1');
@@ -42,10 +45,9 @@ function populate(api) {
 
         container.setAttribute('class', 'container');
         thumbnail.setAttribute('class', 'thumbnail');
-    
-        h1.textContent = api[1][j];    
-        p.textContent = api[2][j]
-        a.setAttribute('href', api[3][j])
+        h1.textContent = page.title;    
+        p.textContent = page.extract;
+        a.setAttribute('href', 'https://en.wikipedia.org/?curid=' + page.pageid);
         a.setAttribute('target', '_blank');
         a.textContent = 'Read more here!'
         
