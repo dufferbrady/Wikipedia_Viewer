@@ -20,11 +20,53 @@ html body {
     margin-top: 5px;
 }
 
+.search-again-hidden {
+    position: absolute;
+    visibility: hidden;
+}
+
+.search-again {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5% 0%;
+    left: 50%;
+}
+
+.search-again-button {
+    border: none;
+    background-color: #0A192F;
+    color: white;
+    font-size: 150%;
+    padding: 0.5% 1%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: font-size 250ms ease-in;
+}
+
+.search-again-button:hover {
+    font-size: 160%;
+    transition: font-size 250ms ease-in;
+}
+
+#search-content {
+    transition: display 5s;
+    opacity: 1;
+}
+
+.remove-search-content {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 1px;
+    transition: height 3s;
+}
+
 .searchBar {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 40px;
 }
 
@@ -77,7 +119,12 @@ input::-webkit-input-placeholder {
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 2.5%;
+    outline: none;
+}
+
+#randomLink {
+    outline: none;
 }
 
 .random button {
@@ -86,6 +133,10 @@ input::-webkit-input-placeholder {
     background-color: #F72730;
     border: none;
     outline: none;
+}
+
+.random button:focus {
+    outline:0;
 }
 
 .randomIcon {

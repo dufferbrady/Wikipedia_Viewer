@@ -31,13 +31,18 @@
         <h1 id="top_header">Free Code Camp</h1>
         <h1 id="bottom_header">Wikipedia App</h1>
     </div>
-    <div class="searchBar">
-        <input type="search" placeholder="Search Here" id="mySearch">
-        <button type="submit"><i class="searchIcon fas fa-search"></i></button>
+    <div id="search-again-target" class="search-again-hidden">
+        <button class="search-again-button">Search Again?</button>
     </div>
-    <div class="random">
-        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button><i class="randomIcon fas fa-dice"></i></button></a>
-        <p class="chance" >Take A Chance?</p>
+    <div id="search-content">
+        <div class="searchBar">
+            <input type="search" placeholder="Search Here" id="mySearch">
+            <button type="submit"><i class="searchIcon fas fa-search"></i></button>
+        </div>
+        <div class="random">
+            <a id="randomLink" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button><i class="randomIcon fas fa-dice"></i></button></a>
+            <p class="chance" >Take A Chance?</p>
+        </div>
     </div>
     <div id="root"></div>
 

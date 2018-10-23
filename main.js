@@ -18,18 +18,6 @@ function search() {
     })
 }
 
-$(document).ready(function() {
-    $('#mySearch').keyup(function(event) {
-        if (event.keyCode === 13) {
-            //Call Search Function Here
-            search();
-        }
-    })
-    $('.searchIcon').on('click', function() {
-        search();
-    })
-})
-
 function removeData() {
     $('.container').remove();
 }
@@ -57,4 +45,40 @@ function populate(input) {
         thumbnail.appendChild(p);
         thumbnail.appendChild(a);
     }
+};
+
+let searchBartransition = () => {
+    let searchContainer = $('#search-content');
+    searchContainer[0].classList.toggle('remove-search-content');
 }
+
+let searchAgainBtn = () => {
+    searchAgain();
+    searchBartransition();
+    removeData();
+}
+
+let searchAgain = () => {
+    let searchAgain = $('#search-again-target')[0];
+    if(searchAgain.classList.value === 'search-again-hidden' || searchAgain.classList.value === 'search-again') {
+        searchAgain.classList.toggle('search-again');
+        searchAgain.classList.toggle('search-again-hidden');
+    } 
+};
+
+$(document).ready(() => {
+    $('#mySearch').keyup(function(event) {
+        if (event.keyCode === 13) {
+            //Call Search Function Here
+            search();
+            searchBartransition();
+            searchAgain();
+        }
+    })
+    $('.searchIcon').on('click', function() {
+        search();
+    })
+    $('.search-again-button').on('click', () => {
+        searchAgainBtn();
+    });
+});
