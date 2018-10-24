@@ -57,9 +57,6 @@ html body {
 .remove-search-content {
     position: absolute;
     visibility: hidden;
-    opacity: 0;
-    height: 1px;
-    transition: height 3s;
 }
 
 .searchBar {
@@ -168,11 +165,19 @@ input::-webkit-input-placeholder {
     width: 50%;
 }
 
+/* #root {
+    padding-bottom: 7.5%;
+} */
+
+.container {
+    padding-bottom: 7.5%;
+}
+
 .thumbnail {
     background-color: #0A192F;
     color: white;
     margin: 2.5% 0;
-    padding: 15px;
+    padding: 2.5% 1.5%;
     border-radius: 10px;
 }
 
@@ -198,4 +203,37 @@ input::-webkit-input-placeholder {
 .thumbnail-button:hover {
     font-size: 105%;
     transition: font-size 250ms ease-in;
+}
+
+@media (max-width: 900px) {
+    .searchBar input {
+        width: 40%;
+    }
+    .thumbnail {
+        padding: 2.5% 2.5%;
+    }
+}
+
+@media (max-width: 650px) {
+    .searchBar input {
+        width: 60%;
+    }
+    .thumbnail {
+        padding: 2.5% 3.5%;
+    }
+}
+
+@media (max-width: 500px) {
+    .searchBar input {
+        width: 70%;
+    }
+    .thumbnail {
+        padding: 3% 4.5%;
+    }
+    .thumbnail-button {
+        padding: 0.5% 2.5%;
+    }
+    .search-again-button {
+        padding: 0.5% 2.5%;
+    }
 }

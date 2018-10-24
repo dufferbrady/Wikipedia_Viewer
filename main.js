@@ -55,9 +55,9 @@ let createthumbnail = (container, page) => {
 };
 
 let populate = input => {
+    let container = document.createElement('div');
     for (let result in input) {
         let page = input[result]
-        let container = document.createElement('div');
         container.setAttribute('class', 'container');
         root.appendChild(container);
         createthumbnail(container, page);
