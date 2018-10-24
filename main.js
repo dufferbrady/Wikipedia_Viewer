@@ -1,13 +1,12 @@
-function search() {
-    var value = document.getElementById('mySearch').value;
-    var cb = '&callback=JSON_CALLBACK';
-    var url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=5&prop=pageimages%7Cextracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
-    const root = document.getElementById('root');
+let search = () => {
+    let value = document.getElementById('mySearch').value;
+    let cb = '&callback=JSON_CALLBACK';
+    let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=5&prop=pageimages%7Cextracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
     $.ajax({
         url: url + value + cb,
         dataType: 'jsonp',
-        success: function(data) {
-            var results = data.query.pages;
+        success: data => {
+            let results = data.query.pages;
             if ($.trim($("#root").html()) !== '') {
                 removeData();
                 populate(results)
@@ -18,7 +17,7 @@ function search() {
     })
 }
 
-function removeData() {
+let removeData = () => {
     $('.container').remove();
 }
 
@@ -55,10 +54,10 @@ let createthumbnail = (container, page) => {
     thumbnailBody(thumbnail, page);
 };
 
-function populate(input) {
+let populate = input => {
     for (let result in input) {
         let page = input[result]
-        const container = document.createElement('div');
+        let container = document.createElement('div');
         container.setAttribute('class', 'container');
         root.appendChild(container);
         createthumbnail(container, page);
@@ -85,7 +84,7 @@ let searchAgain = () => {
 };
 
 $(document).ready(() => {
-    $('#mySearch').keyup(function(event) {
+    $('#mySearch').keyup(event => {
         if (event.keyCode === 13) {
             //Call Search Function Here
             search();
@@ -93,7 +92,7 @@ $(document).ready(() => {
             searchAgain();
         }
     })
-    $('.searchIcon').on('click', function() {
+    $('.searchIcon').on('click', () => {
         search();
     })
     $('.search-again-button').on('click', () => {
