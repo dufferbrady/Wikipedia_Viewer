@@ -1,0 +1,22 @@
+{
+  "name": "wikipedia_viewer",
+  "version": "1.0.0",
+  "description": "A personalized app created to use the wikipedia API. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dufferbrady/Wikipedia_Viewer.git"
+  },
+  "author": "Andy Brady",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dufferbrady/Wikipedia_Viewer/issues"
+  },
+  "homepage": "https://github.com/dufferbrady/Wikipedia_Viewer#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
