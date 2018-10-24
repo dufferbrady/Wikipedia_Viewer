@@ -183,3 +183,19 @@ input::-webkit-input-placeholder {
 .thumbnail a:hover {
     color: #F72730;
 }
+
+.thumbnail-button {
+    background-color: #F72730;
+    border: none;
+    color: white;
+    font-size: 100%;
+    padding: 0.5% 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: font-size 250ms ease-in;
+}
+
+.thumbnail-button:hover {
+    font-size: 105%;
+    transition: font-size 250ms ease-in;
+}

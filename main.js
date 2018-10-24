@@ -22,28 +22,46 @@ function removeData() {
     $('.container').remove();
 }
 
-function populate(input) {
-    for (var result in input) {
-        var page = input[result]
-        const container = document.createElement('div');
-        const thumbnail = document.createElement('div');
-        const h1 = document.createElement('h1');
-        const p = document.createElement('p');
-        const a = document.createElement('a');
+let thumbnailButton = (thumbnail, input) => {
+    let a = document.createElement('a');
+    let button = document.createElement('button');
 
+    a.setAttribute('href', 'https://en.wikipedia.org/?curid=' + input.pageid);
+    a.setAttribute('target', '_blank');
+
+    button.setAttribute('class', 'thumbnail-button');
+    button.textContent = 'Read more here!'
+
+    a.appendChild(button);
+    thumbnail.appendChild(a);
+}
+
+let thumbnailBody = (thumbnail, input) => {
+    let h1 = document.createElement('h1');
+    let p = document.createElement('p');
+
+    h1.textContent = input.title;    
+    p.textContent = input.extract;
+
+    thumbnail.appendChild(h1);
+    thumbnail.appendChild(p);
+    thumbnailButton(thumbnail, input);
+}
+
+let createthumbnail = (container, page) => {
+    let thumbnail = document.createElement('div');
+    thumbnail.setAttribute('class', 'thumbnail');
+    container.appendChild(thumbnail);
+    thumbnailBody(thumbnail, page);
+};
+
+function populate(input) {
+    for (let result in input) {
+        let page = input[result]
+        const container = document.createElement('div');
         container.setAttribute('class', 'container');
-        thumbnail.setAttribute('class', 'thumbnail');
-        h1.textContent = page.title;    
-        p.textContent = page.extract;
-        a.setAttribute('href', 'https://en.wikipedia.org/?curid=' + page.pageid);
-        a.setAttribute('target', '_blank');
-        a.textContent = 'Read more here!'
-        
         root.appendChild(container);
-        container.appendChild(thumbnail);
-        thumbnail.appendChild(h1);
-        thumbnail.appendChild(p);
-        thumbnail.appendChild(a);
+        createthumbnail(container, page);
     }
 };
 
